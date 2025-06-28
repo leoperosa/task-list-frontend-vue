@@ -1,5 +1,46 @@
-# Vue 3 + Vite
+# task-list-backend-laminas
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Step by step to start the application
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+**Installation using Composer**
+
+docker-compose up -d --build
+
+
+**Install dependencies**
+
+docker-compose exec api-laminas composer install
+
+
+**Create database**
+
+docker-compose exec mysql mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS taskdb_leonardo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+
+**Run the migrations**
+
+docker-compose exec api-laminas php vendor/bin/phinx migrate
+
+
+**Run the tests**
+
+docker-compose exec api-laminas ./vendor/bin/phpunit
+
+
+**Authentication**
+
+The application simulates a user login. To access from the login screen, use **username = user and password = 1234**
+
+**Views**
+
+The API runs on port 8081. To access it, use http://localhost:8081
+
+http://localhost:8082/
+
+http://localhost:8082/login
+
+http://localhost:8082/tasks
+
+http://localhost:8082/task/:id
+
+http://localhost:8082/task/:id/status/
