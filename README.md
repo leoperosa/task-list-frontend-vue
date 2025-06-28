@@ -1,31 +1,10 @@
-# task-list-backend-laminas
+# task-list-frontend-vue
 
 ## Step by step to start the application
 
-**Installation using Composer**
+**Installation using Docker**
 
 docker-compose up -d --build
-
-
-**Install dependencies**
-
-docker-compose exec api-laminas composer install
-
-
-**Create database**
-
-docker-compose exec mysql mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS taskdb_leonardo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-
-
-**Run the migrations**
-
-docker-compose exec api-laminas php vendor/bin/phinx migrate
-
-
-**Run the tests**
-
-docker-compose exec api-laminas ./vendor/bin/phpunit
-
 
 **Authentication**
 
